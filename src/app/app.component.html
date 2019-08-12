@@ -1,0 +1,45 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button style="margin-right:20px" mat-icon-button *ngIf="screenWidth <= 840" (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <h1 middle>{{title}}</h1>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-sidenav-container>
+  <mat-sidenav style="min-width:200px" #sidenav [opened]="screenWidth > 840" [mode]="(screenWidth > 840) ? 'side' : 'over'">
+      <mat-toolbar>
+        <mat-toolbar-row>
+            <h2>Main Menu</h2>
+        </mat-toolbar-row>
+      </mat-toolbar>
+      <mat-nav-list *ngIf="featuresCount>0">      
+          <h2 matSubheader>Features</h2>
+          <mat-divider></mat-divider>
+          <a mat-list-item routerLink="/" style="height: 0;"></a>
+          <a mat-list-item [routerLink]="'/live'" (click)="navToggle()" role="menuitem" *ngIf="isLiveAvailable">
+            <mat-icon matListIcon>cast</mat-icon><span>Live</span>
+          </a>
+          <a mat-list-item [routerLink]="'/ambience'" (click)="navToggle()" role="menuitem" *ngIf="isAmbienceAvailable">
+            <mat-icon matListIcon>wb_incandescent</mat-icon><span>Ambience</span>
+          </a>
+          <!-- place to add links to 
+            core server module on git, 
+            npm server plugins, 
+            npm client plugins, 
+            webapp code on git
+          -->
+          <mat-divider></mat-divider>
+          <a mat-list-item (click)="sidenav.toggle()" *ngIf="screenWidth <= 840" role="menuitem">
+              <mat-icon matListIcon>close</mat-icon><span>Close</span>
+          </a>
+      </mat-nav-list>
+    </mat-sidenav>
+  <mat-sidenav-content>
+    <div style="height: 88vh">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+

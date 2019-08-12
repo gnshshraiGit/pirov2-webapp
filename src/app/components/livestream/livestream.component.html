@@ -1,0 +1,61 @@
+<div class="container"
+     style="height:100%"
+     fxLayout="row"
+     fxLayoutAlign="center center">
+        <div fxFlex.xs="0%" fxFlex.sm="10%" fxFlex.md="15%" fxFlex.lg="20%"></div>
+        <div fxFlexFill fxFlex.xs="100%" fxFlex.sm="80%" fxFlex.md="70%" fxFlex.lg="60%">
+                <div style="margin:0 5px 0 5px; height:100%" fxLayout="column">
+                    <div fxLayout="column" fxLayout.gt-md="row" style="z-index:5; position:fixed; background-color: transparent">
+                        <a style="margin:0 10px 10px 0;" disableRipple="true" mat-mini-fab color="warn" (click) = "avStreamer.startRecording()">
+                            <mat-icon>videocam</mat-icon>
+                        </a>
+                        <a style="margin:0 10px 10px 0;" disableRipple="true" mat-mini-fab color="accent" (click) = "reloadImage()">
+                            <mat-icon>refresh</mat-icon>
+                        </a>
+                        <a disableRipple="true" mat-mini-fab color="accent" href={{avStreamer.recordingDwnloadLink}} *ngIf="isRecordingDwnldAvailable">
+                            <mat-icon>cloud_download</mat-icon>
+                        </a>
+                    </div>
+                    <div fxFlex="80%" fxLayoutAlign="center center">
+                            <img src="{{videoLink}}" height="100%" width="100%" />
+                            <audio autoplay>
+                                <source src="{{audioLink}}">
+                                Your browser does not support the audio tag.
+                            </audio>
+                    </div>
+                    <div fxFlex="20%" fxLayoutAlign="center center" fxLayout="row" style="height:100%" *ngIf="isWalkyAvailable">
+                        <div fxFlex="25%" fxFlexFill fxLayoutAlign="center center">
+                            <button style="height:100%; width:100%" disableRipple="true" mat-raised-button 
+                            (press) = "walky.goLft()" (pressup) = "walky.stop()"
+                            (mousedown) = "walky.goLft()" (mouseup) = "walky.stop()">
+                                <mat-icon>arrow_back</mat-icon>
+                            </button>
+                        </div>
+                        <div style="height:100%" fxLayout="column" fxFlex="50%" fxLayoutAlign="center center">
+                            <div fxFlex="50%" fxFlexFill fxLayoutAlign="center center">
+                                <button style="height:100%; width:100%" disableRipple="true" mat-raised-button
+                                (press) = "walky.goFwd()" (pressup) = "walky.stop()"
+                                (mousedown) = "walky.goFwd()" (mouseup) = "walky.stop()">
+                                    <mat-icon>arrow_upward</mat-icon>
+                                </button>
+                            </div>
+                            <div fxFlex="50%" fxFlexFill fxLayoutAlign="center center">
+                                <button style="height:100%; width:100%" disableRipple="true" mat-raised-button
+                                (press) = "walky.goBkd()" (pressup) = "walky.stop()"
+                                (mousedown) = "walky.goBkd()" (mouseup) = "walky.stop()">
+                                    <mat-icon>arrow_downward</mat-icon>
+                                </button>
+                            </div>
+                        </div>
+                        <div fxFlex="25%" fxFlexFill fxLayoutAlign="center center">
+                            <button style="height:100%; width:100%" disableRipple="true" mat-raised-button
+                            (press) = "walky.goRit()" (pressup) = "walky.stop()"
+                            (mousedown) = "walky.goRit()" (mouseup) = "walky.stop()">
+                                <mat-icon>arrow_forward</mat-icon>
+                            </button>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    <div fxFlex.xs="0%" fxFlex.sm="10%" fxFlex.md="15%" fxFlex.lg="20%"></div>
+</div>
