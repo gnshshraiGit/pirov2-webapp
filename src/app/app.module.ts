@@ -17,6 +17,7 @@ import { LivestreamComponent } from './components/livestream/livestream.componen
 import { AmbientComponent } from './components/ambient/ambient.component';
 import { WalkyService } from './services/walky/walky.service';
 import { AmbientService } from './services/ambient/ambient.service';
+import { HomescreenComponent } from './components/homescreen/homescreen.component';
 
 
 export function initializeApp(appInitService: AppinitializerService) {
@@ -27,7 +28,8 @@ export function initializeApp(appInitService: AppinitializerService) {
   declarations: [
     AppComponent,
     LivestreamComponent,
-    AmbientComponent
+    AmbientComponent,
+    HomescreenComponent
   ],
   imports: [
     BrowserModule,

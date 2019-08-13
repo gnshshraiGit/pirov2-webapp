@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AppsettingsService {
-  baseAddress = '192.168.1.11:8080';
+  baseAddress = environment.baseAddress;
   uiConfigUrl = 'http://' + this.baseAddress + '/app/uiconfig';
   walkyServiceTypeKey = 'walky'; // this should be same what is set in server config file
   avStreamerServiceTypeKey = 'avstreamer'; // this should be same what is set in server config file

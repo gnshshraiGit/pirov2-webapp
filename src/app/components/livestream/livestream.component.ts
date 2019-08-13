@@ -12,7 +12,7 @@ export class LivestreamComponent implements OnInit, OnDestroy {
   isRecordingDwnldAvailable = false;
   videoLink = '';
   audioLink = '';
-  constructor(private avStreamer: AvstreamerService, private walky: WalkyService) {
+  constructor(public avStreamer: AvstreamerService, public walky: WalkyService) {
   }
 
   recordingDone(recordingData) {
