@@ -58,7 +58,7 @@ export class AvstreamerService extends Socket {
 
   onRecordingErr(recordErrCallback) {
     this.on(this.config.recordingErrEvent, (data) => {
-      this.recordingData.isRecording = data.success || data.recording;
+      this.recordingData.isRecording = data.success && data.recording;
       const message = this.recordingData.isRecording ? 'Recording Started' : 'Error Occured';
       this.openRecordingErrNotification(message);
       if (!this.isLoaded) {
