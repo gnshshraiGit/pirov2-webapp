@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseAddress: '192.168.1.11:8080'
+  baseAddress: '192.168.1.19:8080'
 };
 
 /*

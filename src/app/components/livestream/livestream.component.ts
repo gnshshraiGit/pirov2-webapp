@@ -28,7 +28,7 @@ export class LivestreamComponent implements OnInit, OnDestroy {
     this.avStreamer.isLoaded = true;
     this.avStreamer.onRecordingDone(this.recordingDone);
     this.avStreamer.onRecordingErr(this.recordingErr);
-    if (this.walky.config) {
+    if (this.walky.config && this.walky.config.enabled) {
       this.isWalkyAvailable = true;
       this.walky.connect();
     }
